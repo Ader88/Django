@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def greet(request, name=None):
+    if name:
+        greeting = f"Hello {name.capitalize()}!"
+    else:
+        greeting = "Hello World!"
+    return HttpResponse(greeting)
