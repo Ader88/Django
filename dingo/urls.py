@@ -20,5 +20,6 @@ from django.http import HttpResponse
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('maths/', lambda request: HttpResponse("Tu będzie matma"))
+    path('maths/', lambda request: HttpResponse("Tu będzie matma")),
+    path('maths/add/1/2', lambda request: HttpResponse(3))
 ]
