@@ -9,6 +9,9 @@ class Math(models.Model):
     class Meta:
         app_label = 'maths'
 
-class Result(models.Model):  # Dodaj definicję klasy Result
-    # Definicja pól dla klasy Result
-    pass
+class Result(models.Model):
+    value = models.FloatField(null=True)
+    error = models.CharField(max_length=255, null=True)
+
+    class Meta:
+        app_label = 'maths'
