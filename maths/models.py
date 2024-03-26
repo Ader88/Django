@@ -1,5 +1,7 @@
 from django.db import models
 
+# Create your models here.
+
 class Math(models.Model):
     a = models.IntegerField()
     b = models.IntegerField()
@@ -8,15 +10,10 @@ class Math(models.Model):
 
     def __str__(self):
         return f"id:{self.id}, a={self.a}, b={self.b}, op={self.operation}"
-    class Meta:
-        app_label = 'maths'
-
+    
 class Result(models.Model):
     value = models.FloatField()
-    error = models.CharField(max_length=100, null=True, blank=True)
+    error = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
-        return f"value: {self.value} | error: {self.error}"
-    
-    class Meta:
-        app_label = 'maths'
+        return f'value: {self.value} | error: {self.error}'

@@ -1,28 +1,42 @@
 from django.test import TestCase
-from django.urls import resolve
-from django.urls.exceptions import Resolver404
-from maths.views import add, sub, mul, div
-
+from django.urls import reverse, resolve
+from maths.views import add, sub, mul, div, add_result
+from django.urls.exceptions import NoReverseMatch
 
 class TestUrls(TestCase):
 
     def test_resolution_for_add(self):
-        resolver = resolve('/maths/add/1/2')
+        url = reverse('add', args=[1, 2])
+        resolver = resolve(url)
         self.assertEqual(resolver.func, add)
 
     def test_resolution_for_sub(self):
-        resolver = resolve('/maths/sub/1/2')
+        url = reverse('sub', args=[1, 2])
+        resolver = resolve(url)
         self.assertEqual(resolver.func, sub)
 
     def test_resolution_for_mul(self):
-        resolver = resolve('/maths/mul/1/2')
+        url = reverse('mul', args=[1, 2])
+        resolver = resolve(url)
         self.assertEqual(resolver.func, mul)
 
     def test_resolution_for_div(self):
-        resolver = resolve('/maths/div/1/2')
+        url = reverse('div', args=[1, 2])
+        resolver = resolve(url)
         self.assertEqual(resolver.func, div)
 
-    def test_arguments_should_be_integers_or_404(self):
-        with self.assertRaises(Resolver404):
-            resolve('/maths/add/a/b')
+    def test_resolution_for_add_result(self):
+        url = reverse('add_result_url')
+        resolver = resolve(url)
+        self.assertEqual(resolver.func, add_result)
 
+    def test_arguments_should_be_integers_or_404(self):
+        # Sprawdź czy wywołanie reverse z niepoprawnymi argumentami raises NoReverseMatch
+        with self.assertRaises(NoReverseMatch):
+            reverse('add', args=['a', 'b'])
+
+        # Sprawdź również czy wywołanie reverse z poprawnymi argumentami nie raises NoReverseMatch
+        try:
+            reverse('add', args=['1', '2'])
+        except NoReverseMatch:
+            self.fail("NoReverseMatch unexpectedly raised for valid arguments")

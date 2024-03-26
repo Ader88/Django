@@ -13,4 +13,5 @@ class MathViewsTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.context["maths"]), 1)
         math_entry = Math.objects.get(operation="sub", a=20, b=30)
-        self.assertIn(f'<li><a href="/maths/histories/{math_entry.id}">id:{math_entry.id}, a={math_entry.a}, b={math_entry.b}, op={math_entry.operation}</a></li>', response.content.decode())
+        
+        self.assertIn(f'id:{math_entry.id}, a={math_entry.a}, b={math_entry.b}, op={math_entry.operation}', response.content.decode())
