@@ -1,0 +1,40 @@
+[
+    {
+      "model": "greetings.greetingcategory",
+      "pk": 1,
+      "fields": {
+        "name": "Birthday"
+      }
+    },
+    {
+      "model": "greetings.greetingcategory",
+      "pk": 2,
+      "fields": {
+        "name": "Anniversary"
+      }
+    },
+    {
+      "model": "greetings.greeting",
+      "pk": 1,
+      "fields": {
+        "category": 1,
+        "message": "Happy Birthday!"
+      }
+    },
+    {
+      "model": "greetings.greeting",
+      "pk": 2,
+      "fields": {
+        "category": 1,
+        "message": "Wishing you a wonderful birthday!"
+      }
+    },
+    {
+      "model": "greetings.greeting",
+      "pk": 3,
+      "fields": {
+        "category": 2,
+        "message": "Happy Anniversary!"
+      }
+    }
+  ]  
