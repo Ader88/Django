@@ -1,0 +1,123 @@
+[
+    {
+        "model": "maths.math",
+        "pk": 1,
+        "fields": {
+            "operation": "add",
+            "a": 1,
+            "b": 2,
+            "created": "2024-03-26T08:00:00Z",
+            "result": 3
+        }
+    },
+    {
+        "model": "maths.math",
+        "pk": 2,
+        "fields": {
+            "operation": "sub",
+            "a": 10,
+            "b": 20,
+            "created": "2024-03-26T08:00:00Z",
+            "result": null
+        }
+    },
+    {
+        "model": "maths.math",
+        "pk": 3,
+        "fields": {
+            "operation": "mul",
+            "a": 5,
+            "b": 8,
+            "created": "2024-03-26T08:00:00Z",
+            "result": 40
+        }
+    },
+    {
+        "model": "maths.math",
+        "pk": 4,
+        "fields": {
+            "operation": "div",
+            "a": 30,
+            "b": 10,
+            "created": "2024-03-26T08:00:00Z",
+            "result": 3
+        }
+    },
+    {
+        "model": "maths.math",
+        "pk": 5,
+        "fields": {
+            "operation": "add",
+            "a": 15,
+            "b": 25,
+            "created": "2024-03-26T08:00:00Z",
+            "result": 40
+        }
+    },
+    {
+        "model": "maths.math",
+        "pk": 6,
+        "fields": {
+            "operation": "sub",
+            "a": 100,
+            "b": 50,
+            "created": "2024-03-26T08:00:00Z",
+            "result": 50
+        }
+    },
+    {
+        "model": "maths.math",
+        "pk": 7,
+        "fields": {
+            "operation": "mul",
+            "a": 7,
+            "b": 3,
+            "created": "2024-03-26T08:00:00Z",
+            "result": 21
+        }
+    },
+    {
+        "model": "maths.math",
+        "pk": 8,
+        "fields": {
+            "operation": "div",
+            "a": 50,
+            "b": 5,
+            "created": "2024-03-26T08:00:00Z",
+            "result": 10
+        }
+    },
+    {
+        "model": "maths.math",
+        "pk": 9,
+        "fields": {
+            "operation": "add",
+            "a": 18,
+            "b": 12,
+            "created": "2024-03-26T08:00:00Z",
+            "result": 30
+        }
+    },
+    {
+        "model": "maths.math",
+        "pk": 10,
+        "fields": {
+            "operation": "sub",
+            "a": 50,
+            "b": 30,
+            "created": "2024-03-26T08:00:00Z",
+            "result": 20
+        }
+    },
+    {
+        "model": "maths.math",
+        "pk": 11,
+        "fields": {
+            "operation": "mul",
+            "a": 12,
+            "b": 6,
+            "created": "2024-03-26T08:00:00Z",
+            "result": 72
+        }
+    }
+]
