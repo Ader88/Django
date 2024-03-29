@@ -8,11 +8,11 @@ class Math(models.Model):
     result = models.IntegerField(null=True, default=None)
 
     def __str__(self):
-        return f"id:{self.id}, a={self.a}, b={self.b}, op={self.operation}, {self.result}"
+        return f"id:{self.id}, a={self.a}, b={self.b}, op={self.operation}, result={self.result}"
     
 class Result(models.Model):
-    value = models.FloatField(default=0.0)  # Domyślna wartość dla value to 0.0
-    error = models.CharField(max_length=100, blank=True, null=True)
+    value = models.FloatField(null=True, blank=True)
+    error = models.CharField(max_length=255, default='Error')
 
     def __str__(self):
         return f'value: {self.value} | error: {self.error}'

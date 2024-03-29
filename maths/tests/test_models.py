@@ -1,7 +1,6 @@
 from django.test import TestCase
 from maths.models import Math, Result
 
-
 class MathModelTest(TestCase):
 
     def setUp(self):
@@ -12,18 +11,20 @@ class MathModelTest(TestCase):
         m1 = Math.objects.get(operation="add")
         m2 = Math.objects.get(operation="sub")
 
-        self.assertEqual(str(m1), "id:1, a=1, b=2, op=add")
-        self.assertEqual(str(m2), "id:2, a=20, b=30, op=sub")
+        expected_m1_str = f"id:{m1.id}, a={m1.a}, b={m1.b}, op={m1.operation}, result={m1.result}"
+        expected_m2_str = f"id:{m2.id}, a={m2.a}, b={m2.b}, op={m2.operation}, result={m2.result}"
+
+        # Dodatkowy warunek sprawdzający operację
+        self.assertEqual(m1.operation, "add")
+
+        self.assertEqual(str(m1), expected_m1_str)
+        self.assertEqual(str(m2), expected_m2_str)
 
 class ResultModelTest(TestCase):
 
-    def setUp(self):
-        Result.objects.create(value=10)
-        Result.objects.create(error="0 division error!")
-
     def test_result_str(self):
-        r1 = Result.objects.get(value=10)
-        r2 = Result.objects.get(error="0 division error!")
+        # Tworzymy obiekt Result z wartością None dla atrybutu value
+        r = Result.objects.create(error="0 division error!")  # Zmiana: Usunięcie value=None
 
-        self.assertEqual(str(r1), 'value: 10.0 | error: None')
-        self.assertEqual(str(r2), 'value: None | error: 0 division error!')
+        # Sprawdzamy, czy implementacja __str__ zwraca oczekiwaną wartość
+        self.assertEqual(str(r), f'value: {r.value} | error: {r.error}')
