@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Math Details{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-8">
+    <h2>Math Details</h2>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Operation Details</h5>
+        <p><strong>ID:</strong> {{ math.id }}</p>
+        <p><strong>A:</strong> {{ math.a }}</p>
+        <p><strong>B:</strong> {{ math.b }}</p>
+        <p><strong>Operation:</strong> {{ math.operation }}</p>
+        <p><strong>Result:</strong> {{ math.result }}</p>
+      </div>
+    </div>
+    <a href="{% url 'maths_list_url' %}" class="btn btn-primary">Back to List</a>
+  </div>
+</div>
+{% endblock %}

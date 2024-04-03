@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Math Operations List{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-8">
+    <h2>Math Operations List</h2>
+    <ul class="list-group">
+      {% for math in maths %}
+        <li class="list-group-item">
+          <a href="{% url 'math_details' math.id %}">{{ math.operation }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

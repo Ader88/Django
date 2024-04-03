@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ author.nick }}</h5>
+            <p class="card-text">Email: {{ author.email }}</p>
+        </div>
+        <div class="card-footer text-muted">
+            <a href="{% url 'authors_list' %}" class="btn btn-primary">Powrót do listy autorów</a>
+        </div>
+    </div>
+{% endblock %}

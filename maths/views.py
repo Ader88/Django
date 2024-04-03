@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Math
 from .forms import ResultForm
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -28,8 +29,21 @@ def div(request, a, b):
     return render(request, 'div.html', {'a': a, 'b': b, 'result': result})
 
 def maths_list(request):
+    operation = request.GET.get('operation')
     maths = Math.objects.all()
-    return render(request, 'maths_list.html', {'maths': maths})
+
+    if operation:
+        maths = Math.objects.filter(operation=operation)
+
+    paginator = Paginator(maths, 5)
+    page_number = request.GET.get('page')
+    maths = paginator.get_page(page_number)
+
+    return render(
+       request=request,
+       template_name="maths/list.html",
+       context={"maths": maths, "operation": operation}
+    )
 
 def add_result(request):
     if request.method == 'POST':

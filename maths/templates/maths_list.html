@@ -5,9 +5,17 @@
 </head>
 <body>
     <h1>Maths List</h1>
+
+    <form method="GET" action="{% url 'maths_list' %}">
+        <input type="text" name="operation" value="{{ operation }}">
+        <button type="submit">Search</button>
+    </form>
+
     <ul>
         {% for math in maths %}
-        <li>{{ math }}</li>
+            <li>{{ math.id }} | {{ math.a }} | {{ math.b }} | {{ math.operation }} | {{ math.result }}</li>
+        {% empty %}
+            <li>No maths found.</li>
         {% endfor %}
     </ul>
 </body>

@@ -26,20 +26,25 @@ SECRET_KEY = 'django-insecure-^9sprq&ak)$g#x(1oo(dl8p_wiuj*c6)*-zbv)o7+avh2k28^k
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'testserver'
+    '127.0.0.1', 
+    'localhost',
 ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'maths'
+   'django.contrib.admin',
+   'django.contrib.auth',
+   'django.contrib.contenttypes',
+   'django.contrib.sessions',
+   'django.contrib.messages',
+   'django.contrib.staticfiles',
+
+   'bootstrap4',
+
+   'maths',
+   'posts',
 ]
 
 MIDDLEWARE = [

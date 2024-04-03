@@ -6,6 +6,8 @@ class Math(models.Model):
     operation = models.CharField(max_length=10)
     created = models.DateTimeField(auto_now_add=True)
     result = models.IntegerField(null=True, default=None)
+    class Meta:
+       ordering = ["-id"]
 
     def __str__(self):
         return f"id:{self.id}, a={self.a}, b={self.b}, op={self.operation}, result={self.result}"

@@ -16,8 +16,12 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
+from greetings.views import about, contact, welcome
 
 urlpatterns = [
     path('', views.greet, name='greet'),
     path('<str:name>/', views.greet, name='greet_name'),
+    path('', welcome, name="welcome"),
+    path('about/', about, name="about"),
+    path('contact/', contact, name="contact"),
 ]
